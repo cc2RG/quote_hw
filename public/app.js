@@ -15,6 +15,7 @@ var marcQuote = new Quote("Agile"," Marc");
 
 var AllQuotes = function(){
   this.quotes = [ricksQuote,valQuote,jayQuote,keithQuote,marcQuote];
+  this.listAt = 0;
 };
 
 AllQuotes.prototype = {
@@ -24,12 +25,12 @@ AllQuotes.prototype = {
   },
   listQuote: function(){
     var quoteList = document.getElementById("quote-list");
-    for(var i=0; i < this.quotes.length; i++){
+    for( this.listAt; this.listAt < this.quotes.length; this.listAt++){
       var article = document.createElement("article");
       var newQuote = document.createElement("blockquote");
       var newCite = document.createElement("cite");
-      newQuote.innerText = this.quotes[i].text; 
-      newCite.innerText = this.quotes[i].author;
+      newQuote.innerText = this.quotes[this.listAt].text; 
+      newCite.innerText = " " + this.quotes[this.listAt].author;
       quoteList.appendChild(article);
       article.appendChild(newQuote);
       newQuote.appendChild(newCite);
